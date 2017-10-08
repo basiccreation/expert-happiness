@@ -71,6 +71,9 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          it('menu element changes visibility when menu icon is clicked', function() {
+
+          });
     }); //end The menu
 
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -83,6 +86,10 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+         it('loadFeed is called and completes and there is at least one element', function() {
+            //loadFeed is async
+         })
     }); // end Initial Entries
 
     /* TODO: Write a new test suite named "New Feed Selection" */
@@ -92,6 +99,9 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         it('when new feed is added content changes', function() {
+            //loadFeed is async
+         })
     });
 
 }());
