@@ -31,12 +31,26 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         //inspired by https://stackoverflow.com/questions/26172435/jasmine-use-expect-within-loops
+         it('has URL and is not empty', function(){
+            var i = 0;
+            for(var x = 0 ;  x < allFeeds.length ; x++) {
+                expect(allFeeds[i][1]).not.toBe("");
+            }
+         });
 
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('has name and name is not empty', function() {
+            var i = 0;
+            for(var x = 0 ; x < allFeeds.length ; x++) {
+                expect(allFeeds[i][0]).not.toBe("");
+            }
+         });
+
     }); // RSS Feeds
 
 
@@ -49,7 +63,9 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+         it('menu element is hidden by default', function() {
 
+         });
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
