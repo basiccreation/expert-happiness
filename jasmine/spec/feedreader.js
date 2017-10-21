@@ -63,40 +63,33 @@ $(function() {
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+        /* TODO: Write a test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container. Remember, loadFeed() is asynchronous so this test will require the use of Jasmine's beforeEach and asynchronous done() function.*/
 
-        it('loadFeed is called and completes and there is at least one element', function() {
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
 
-
-
-
-            //loadFeed is async
-        })
+        it('loadFeed is called and completes and there is at least one element', function(done) {
+            var oneEntryMinimum = $(".feed .entry").length;
+            expect(oneEntryMinimum).toBeGreaterThan(0);
+            done();
+        });
     }); // end Initial Entries
+
+
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+
+        /* TODO: Write a test that ensures when a new feed is loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.
          */
 
-             var simulatedAjaxResponse = {
-      name: "The Best Feed",
-      url: "http://feeds.feedburner.com/thebestfeed"
-    };
+        it('Content changes when new feed is added', function() {
 
-        it('when new feed is added content changes', function() {
-
-
-        return expect (loadFeed).toContain("url", "http://feeds.feedburner.com/thebestfeed");
-            //loadFeed is async
         });
     });
 
