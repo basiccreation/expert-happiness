@@ -81,15 +81,25 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
 
+        var orgLoadFeed = loadFeed;
+
         beforeEach(function(done) {
+            allFeeds.unshift({name: "TekThing", url: "http://feeds.feedburner.com/Tekthing"});
+            console.log(allFeeds);
             loadFeed(0, done);
         });
 
-        /* TODO: Write a test that ensures when a new feed is loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.
+        /* TODO: Write a test that ensures when a new feed
+           is loaded by the loadFeed function that the
+           content actually changes.
+
+           Remember, loadFeed() is asynchronous.
          */
 
         it('Content changes when new feed is added', function() {
-
+        var currentLoadFeed = loadFeed;
+        expect(allFeeds[0].name).toEqual("TekThing");
+        //expect(currentLoadFeed).toEqual.(orgLoadFeed);
         });
     });
 
