@@ -81,25 +81,20 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
 
-        var orgLoadFeed = loadFeed;
+        var orgLength = $(".feed .entry").length;
 
         beforeEach(function(done) {
-            allFeeds.unshift({name: "TekThing", url: "http://feeds.feedburner.com/Tekthing"});
-            console.log(allFeeds);
+            allFeeds.unshift({ name: "TekThing", url: "http://feeds.feedburner.com/Tekthing" });
             loadFeed(0, done);
         });
 
-        /* TODO: Write a test that ensures when a new feed
-           is loaded by the loadFeed function that the
-           content actually changes.
-
-           Remember, loadFeed() is asynchronous.
-         */
+        /* TODO: Write a test that ensures when a new feedis loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.*/
 
         it('Content changes when new feed is added', function() {
-        var currentLoadFeed = loadFeed;
-        expect(allFeeds[0].name).toEqual("TekThing");
-        //expect(currentLoadFeed).toEqual.(orgLoadFeed);
+            var currentLength = $(".feed .entry").length;
+
+            expect(allFeeds[0].name).toEqual("TekThing");
+            expect(currentLength).not.toEqual(orgLength);
         });
     });
 
