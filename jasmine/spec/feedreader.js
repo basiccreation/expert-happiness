@@ -32,6 +32,7 @@ $(function() {
            object and ensures it has a name */
         it("has name and name is not empty", function() {
             allFeeds.forEach(function(element) {
+                expect(element.name).toBeDefined();
                 expect(element.name).not.toBe("");
             });
         });
