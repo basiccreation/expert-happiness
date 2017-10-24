@@ -21,18 +21,17 @@ $(function() {
            object and ensures it has a URL defined.*/
 
         it("has URL and is not empty", function() {
-           allFeeds.forEach(function(element) {
-            console.log(element.url)
-            expect(element.url).toBeDefined();
-           });
+            allFeeds.forEach(function(element) {
+                expect(element.url).toBeDefined();
+            });
         });
 
         /* Loops through each feed in the allFeeds
            object and ensures it has a name */
         it("has name and name is not empty", function() {
-           allFeeds.forEach(function(element) {
-              expect(element.name).not.toBe("");
-           });
+            allFeeds.forEach(function(element) {
+                expect(element.name).not.toBe("");
+            });
         });
 
     }); // RSS Feeds
@@ -54,10 +53,10 @@ $(function() {
         it("menu element changes visibility when menu icon is clicked", function() {
             //inspired by: https://stackoverflow.com/questions/10823790/testing-a-click-event-with-jasmine-that-appends-a-style-sheet-to-the-head
             $(".menu-icon-link").trigger("click");
-                expect($("body").hasClass()).toBeFalsy();
+            expect($("body").hasClass()).toBeFalsy();
 
             $(".menu-icon-link").trigger("click");
-                expect($("body").hasClass("menu-hidden")).toBeTruthy();
+            expect($("body").hasClass("menu-hidden")).toBeTruthy();
         });
     }); //end The menu
 
@@ -67,35 +66,34 @@ $(function() {
            completes its work, and there is at
            least a single element within the container. */
 
-       beforeEach(function(done) {
-          loadFeed(0, done);
-       });
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
 
         it("loadFeed is called and completes and there is at least one element", function(done) {
             var oneEntryMinimum = $(".feed .entry").length;
             expect(oneEntryMinimum).toBeGreaterThan(0);
-          done();
+            done();
         });
     }); // end Initial Entries
 
     describe("New Feed Selection", function() {
-
-        var orgLength = $(".feed .entry").length;
+        /* Test that when a new feed is loaded
+           by the loadFeed function
+           that the content actually changes. */
 
         beforeEach(function(done) {
-            allFeeds.unshift({ name: "TekThing", url: "http://feeds.feedburner.com/Tekthing" });
             loadFeed(0, done);
         });
 
-        /* TODO: Write a test that ensures when a new feed is loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.*/
+        var firstFeed = $(".feed").html();
 
-        it("Content changes when new feed is added", function() {
-//            var currentLength = $(".feed .entry").length;
-
- //           expect(allFeeds[0].name).toEqual("TekThing");
- //           expect(currentLength).not.toEqual(orgLength);
+        it("Content changes when new feed is added", function(done) {
+            var secondFeed = $(".feed").html();
+            expect(firstFeed).not.toBe(secondFeed);
+            done();
         });
+
     });
 
 }());
-
