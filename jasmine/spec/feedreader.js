@@ -78,15 +78,14 @@ $(function() {
         });
     }); // end Initial Entries
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
     describe("New Feed Selection", function() {
 
- //       var orgLength = $(".feed .entry").length;
+        var orgLength = $(".feed .entry").length;
 
- //       beforeEach(function(done) {
- //           allFeeds.unshift({ name: "TekThing", url: "http://feeds.feedburner.com/Tekthing" });
-//            loadFeed(0, done);
-//        });
+        beforeEach(function(done) {
+            allFeeds.unshift({ name: "TekThing", url: "http://feeds.feedburner.com/Tekthing" });
+            loadFeed(0, done);
+        });
 
         /* TODO: Write a test that ensures when a new feed is loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.*/
 
