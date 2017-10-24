@@ -56,7 +56,7 @@ $(function() {
         it("menu element changes visibility when menu icon is clicked", function() {
             //inspired by: https://stackoverflow.com/questions/10823790/testing-a-click-event-with-jasmine-that-appends-a-style-sheet-to-the-head
             $(".menu-icon-link").trigger("click");
-            expect($("body").hasClass()).toBeFalsy();
+            expect($("body").hasClass("menu-hidden")).toBeFalsy();
 
             $(".menu-icon-link").trigger("click");
             expect($("body").hasClass("menu-hidden")).toBeTruthy();
