@@ -23,6 +23,8 @@ $(function() {
         it("has URL and is not empty", function() {
             allFeeds.forEach(function(element) {
                 expect(element.url).toBeDefined();
+                expect(element.url).not.toBe("");
+
             });
         });
 
