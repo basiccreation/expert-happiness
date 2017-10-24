@@ -16,6 +16,10 @@ Load index.html file from this folder in a browser of your choice.
 
 - by pressing the backspace button on the keyboard or click the back arrow in your browser, the user canget back to the feedreader homepage.
 
+##Tests
+
+At the bottom of the page you should see that all tests are green. If one of the test produces and error and appears red, it indicates that you need to check you code for errors.
+
 ###Author
 
 Pia Smith
