@@ -39,24 +39,35 @@ $(function() {
 
     describe("The menu", function() {
 
-        /* test that menu element is hidden by default.*/
+        /* test menu element is hidden by default.*/
 
         //inspired by https://www.w3schools.com/jquery/html_hasclass.asp
         it("menu element is hidden by default", function() {
             expect($("body").hasClass("menu-hidden")).toBeTruthy();
         });
 
-        /* TODO: Write a test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display when clicked and does it hide when clicked again. */
+        /* test that menu changes visibility when
+           menu icon is clicked.
+           - menu displays when clicked and
+           - menu hides when clicked again. */
 
         it("menu element changes visibility when menu icon is clicked", function() {
+            //inspired by: https://stackoverflow.com/questions/10823790/testing-a-click-event-with-jasmine-that-appends-a-style-sheet-to-the-head
+            $(".menu-icon-link").trigger("click");
+                expect($("body").hasClass()).toBeFalsy();
 
- //           $link = $(".menu-icon-link");
- //           spyOn($link, "click");
+            $(".menu-icon-link").trigger("click");
+                expect($("body").hasClass("menu-hidden")).toBeTruthy();
 
- //           $link.click();
- //           expect($link.click).toHaveBeenCalled();
 
- //           expect($("body").hasClass("")).not.toBeTruthy();
+           //$link = $(".menu-icon-link");
+           //spyOn($link, "click");
+           //$link.click();
+          // expect($link.click).toHaveBeenCalled();
+          // $link.click();
+           //expect($("body").hasClass()).toBeFalsy();
+
+
         });
     }); //end The menu
 
