@@ -58,32 +58,23 @@ $(function() {
 
             $(".menu-icon-link").trigger("click");
                 expect($("body").hasClass("menu-hidden")).toBeTruthy();
-
-
-           //$link = $(".menu-icon-link");
-           //spyOn($link, "click");
-           //$link.click();
-          // expect($link.click).toHaveBeenCalled();
-          // $link.click();
-           //expect($("body").hasClass()).toBeFalsy();
-
-
         });
     }); //end The menu
 
-    /* TODO: Write a new test suite named "Initial Entries" */
     describe("Initial Entries", function() {
 
-        /* TODO: Write a test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container. Remember, loadFeed() is asynchronous so this test will require the use of Jasmine's beforeEach and asynchronous done() function.*/
+        /* test that loadFeed function is called,
+           completes its work, and there is at
+           least a single element within the container. */
 
- //       beforeEach(function(done) {
-  //          loadFeed(0, done);
- //       });
+       beforeEach(function(done) {
+          loadFeed(0, done);
+       });
 
-        it("loadFeed is called and completes and there is at least one element", function(/*done*/) {
-//            var oneEntryMinimum = $(".feed .entry").length;
- //           expect(oneEntryMinimum).toBeGreaterThan(0);
- //           done();
+        it("loadFeed is called and completes and there is at least one element", function(done) {
+            var oneEntryMinimum = $(".feed .entry").length;
+            expect(oneEntryMinimum).toBeGreaterThan(0);
+          done();
         });
     }); // end Initial Entries
 
