@@ -77,26 +77,33 @@ $(function() {
             var oneEntryMinimum = $(".feed .entry").length;
             expect(oneEntryMinimum).toBeGreaterThan(0);
             done();
+            //  this stays, otherwise I get the error      //
+            //  'Expected 0 to be greater than 0.' Because //
+            //  there's no feeds to count.                 //
         });
     }); // end Initial Entries
+
 
     describe("New Feed Selection", function() {
         /* Test that when a new feed is loaded
            by the loadFeed function
            that the content actually changes. */
+        var firstFeed;
 
         beforeEach(function(done) {
-            loadFeed(0, done);
+            loadFeed(1, done);
+            firstFeed = document.querySelector(".feed").innerHTML;
+//            console.log(firstFeed);
+//            console.log("---------------------------------------");
         });
-
-        var firstFeed = $(".feed").html();
 
         it("Content changes when new feed is added", function(done) {
-            var secondFeed = $(".feed").html();
+            var secondFeed = document.querySelector(".feed").innerHTML;
+//            console.log(secondFeed);
             expect(firstFeed).not.toBe(secondFeed);
             done();
-        });
+        }); //end it
 
-    });
+    }); //end new feed selection
 
 }());
