@@ -92,13 +92,14 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(1, done);
-            firstFeed = document.querySelector(".feed").innerHTML;
+            firstFeed = ($(".feed .entry h2").text());
 //            console.log(firstFeed);
-//            console.log("---------------------------------------");
+ //           console.log("---------------------------------------");
         });
 
         it("Content changes when new feed is added", function(done) {
-            var secondFeed = document.querySelector(".feed").innerHTML;
+            loadFeed(1, done);
+            var secondFeed = ($(".feed .entry h2").text());
 //            console.log(secondFeed);
             expect(firstFeed).not.toBe(secondFeed);
             done();
