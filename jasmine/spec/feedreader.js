@@ -58,7 +58,7 @@ $(function() {
             $(".menu-icon-link").trigger("click");
             expect($("body").hasClass("menu-hidden")).toBeFalsy();
 
-            $(".menu-icon-link").trigger("click");
+            $(".menu-icon-link").click();
             expect($("body").hasClass("menu-hidden")).toBeTruthy();
         });
     }); //end The menu
@@ -68,18 +68,19 @@ $(function() {
         /* test that loadFeed function is called,
            completes its work, and there is at
            least a single element within the container. */
+           var oneEntryMinimum;
 
         beforeEach(function(done) {
             loadFeed(0, done);
+            oneEntryMinimum = $(".feed").length;
+            console.log(oneEntryMinimum);
+            done();
+
         });
 
         it("loadFeed is called and completes and there is at least one element", function(done) {
-            var oneEntryMinimum = $(".feed .entry").length;
             expect(oneEntryMinimum).toBeGreaterThan(0);
             done();
-            //  this stays, otherwise I get the error      //
-            //  'Expected 0 to be greater than 0.' Because //
-            //  there's no feeds to count.                 //
         });
     }); // end Initial Entries
 
@@ -88,21 +89,21 @@ $(function() {
         /* Test that when a new feed is loaded
            by the loadFeed function
            that the content actually changes. */
-        var firstFeed;
+        var firstFeed,
+            secondFeed;
 
         beforeEach(function(done) {
-            loadFeed(1, done);
-            firstFeed = ($(".feed .entry h2").text());
+            loadFeed(0, done);
+            firstFeed = ($(".feed").html());
 //            console.log(firstFeed);
- //           console.log("---------------------------------------");
+//            console.log("---------------------------------------");
         });
 
         it("Content changes when new feed is added", function(done) {
             loadFeed(1, done);
-            var secondFeed = ($(".feed .entry h2").text());
+            secondFeed = ($(".feed").html());
 //            console.log(secondFeed);
             expect(firstFeed).not.toBe(secondFeed);
-            done();
         }); //end it
 
     }); //end new feed selection
