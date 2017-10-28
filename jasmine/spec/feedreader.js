@@ -96,18 +96,18 @@ $(function() {
             loadFeed(0, function() {
                 firstFeed = ($(".feed").html());
                 done();
-                // console.log(firstFeed);
-                // console.log("---------------------------------------");
+                //console.log(firstFeed);
+                //console.log("---------------------------------------");
             });
         });
 
         it("Content changes when new feed is added", function(done) {
             loadFeed(1, function() {
                 secondFeed = ($(".feed").html());
+                expect(firstFeed).not.toBe(secondFeed);
                 done();
-                // console.log(secondFeed);
+                //console.log(secondFeed);
             });
-            expect(firstFeed).not.toBe(secondFeed);
         }); //end it
 
     }); //end new feed selection
